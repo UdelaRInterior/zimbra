@@ -40,3 +40,17 @@
     chdir: /opt/zimbra/bin
   become: true
   become_user: zimbra
+
+- name: Configure dimensions for login logo
+  ansible.builtin.lineinfile:
+    path: '{{ zmSkinPath }}/skin.properties'
+    regexp: '^LoginBanner='
+    line: 'LoginBanner = @img(, LoginBannerImg, {{ zmlogologinwidth }}px, {{ zmlogologinheight }}px)@'
+    state: present
+
+- name: Clear themes caché
+  command: './zmprov flushCache skin'
+  args:
+    chdir: /opt/zimbra/bin
+  become: true
+  become_user: zimbra

@@ -65,3 +65,10 @@ zm_repo:
         8: zcs-8.8.15_GA_3953.RHEL8_64.20200629025823
 
 zimbra_upgrade: false
+
+#
+# Zimbra appearance
+################################################################################
+zmSkinPath: /opt/zimbra/jetty/webapps/zimbra/skins/_base/base3
+zmlogologinwidth: 260
+zmlogologinheight: 34
