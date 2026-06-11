@@ -44,16 +44,16 @@
 - name: Configure dimensions for login logo
   ansible.builtin.lineinfile:
     path: '{{ zmSkinPath }}/skin.properties'
-    regexp: '^LoginBanner='
-    line: 'LoginBanner = @img(, LoginBannerImg, {{ zmlogologinwidth }}px, {{ zmlogologinheight }}px)@'
-    state: present
+    regexp: '^(LoginBanner\s*=).*$'
+    line: '\1 @img(, LoginBannerImg, {{ zmlogologinwidth }}px, {{ zmlogologinheight }}px)@'
+    backrefs: yes
 
 - name: Configure dimensions for zimbra admin login logo
   ansible.builtin.lineinfile:
     path: '{{ zmAdminSkinPath }}/skin.properties'
-    regexp: '^LoginBanner='
-    line: 'LoginBanner = @img(, LoginBannerImg, {{ zmAdminlogologinwidth }}px, {{ zmAdminlogologinheight }}px)@'
-    state: present
+    regexp: '^(LoginBanner\s*=).*$'
+    line: '\1 @img(, LoginBannerImg, {{ zmAdminlogologinwidth }}px, {{ zmAdminlogologinheight }}px)@'
+    backrefs: yes
 
 - name: Clear themes caché
   command: './zmprov flushCache skin'
