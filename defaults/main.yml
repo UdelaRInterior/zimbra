@@ -72,3 +72,7 @@ zimbra_upgrade: false
 zmSkinPath: /opt/zimbra/jetty/webapps/zimbra/skins/_base/base3
 zmlogologinwidth: 260
 zmlogologinheight: 34
+
+zmAdminSkinPath: /opt/zimbra/jetty/webapps/zimbraAdmin/skins/serenity
+zmAdminlogologinwidth: 440
+zmAdminlogologinheight: 60

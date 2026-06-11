@@ -48,6 +48,13 @@
     line: 'LoginBanner = @img(, LoginBannerImg, {{ zmlogologinwidth }}px, {{ zmlogologinheight }}px)@'
     state: present
 
+- name: Configure dimensions for zimbra admin login logo
+  ansible.builtin.lineinfile:
+    path: '{{ zmAdminSkinPath }}/skin.properties'
+    regexp: '^LoginBanner='
+    line: 'LoginBanner = @img(, LoginBannerImg, {{ zmAdminlogologinwidth }}px, {{ zmAdminlogologinheight }}px)@'
+    state: present
+
 - name: Clear themes caché
   command: './zmprov flushCache skin'
   args:
