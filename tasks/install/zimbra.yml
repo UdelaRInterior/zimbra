@@ -44,7 +44,7 @@
     mode: 0644
 
 - name: Installing Zimbra OSE {{ zimbra_version }}
-  shell: ./install.sh -s < /tmp/zcs/installZimbra-keystrokes
+  shell: "./install.sh {{ '-s' if (not zimbra_upgrade) else '' }} < /tmp/zcs/installZimbra-keystrokes"
   args:
     chdir: '/usr/local/src/{{ zm_pkg }}/'
 
@@ -52,3 +52,4 @@
   command: ./zmsetup.pl -c /tmp/zcs/installZimbraScript
   args:
     chdir: /opt/zimbra/libexec/
+  when: not zimbra_upgrade
