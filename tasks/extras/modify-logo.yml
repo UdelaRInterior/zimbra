@@ -28,14 +28,14 @@
   become_user: zimbra
 
 - name: Configure the path for the login logo file
-  command: './zmprov md {{ domain }} zimbraSkinLogoLoginBanner /img/logoLoginBanner.png'
+  command: './zmprov mcf zimbraSkinLogoLoginBanner /img/logoLoginBanner.png'
   args:
     chdir: /opt/zimbra/bin
   become: true
   become_user: zimbra
 
 - name: Configure the path for the webmail logo file
-  command: './zmprov md {{ domain }} zimbraSkinLogoAppBanner /img/logoAppBanner.png'
+  command: './zmprov mcf zimbraSkinLogoAppBanner /img/logoAppBanner.png'
   args:
     chdir: /opt/zimbra/bin
   become: true
