@@ -1,5 +1,5 @@
 - name: Update login.jsp to use Classic view for mobile
   ansible.builtin.replace:
     path: /opt/zimbra/jetty_base/webapps/zimbra/public/login.jsp
-    regexp: '(<select id="client".*?>)[.\s\S]*(<c:if test="\${isClassicWebClientSupported}">[.\s\S]*?<\/c:if>)[.\s\S]*(<\/select>)'
+    regexp: '(<select id="client".*?>)[.\s\S]*(<c:if test="\${isClassicWebClientSupported}">[.\s\S]*?<\/c:if>[.\s\S]*?<\/c:if>)[.\s\S]*(<\/select>)'
     replace: '\g<1>\g<2>\g<3>'
