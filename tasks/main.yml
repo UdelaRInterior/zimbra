@@ -36,6 +36,9 @@
   when: zmlogologin is defined and zmlogoapp is defined
   tags:
   - logo
+- import_tasks: 'extras/modify-login.yml'
+  tags:
+  - login
 
 #
 # Restarting Zimbra
