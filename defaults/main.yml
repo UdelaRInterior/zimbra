@@ -65,6 +65,7 @@ zm_repo:
         8: zcs-8.8.15_GA_3953.RHEL8_64.20200629025823
 
 zimbra_upgrade: false
+zimbra_manual_install: false
 
 #
 # Zimbra appearance

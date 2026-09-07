@@ -43,10 +43,16 @@
     group: root
     mode: 0644
 
+- name: Pause to run the installer manually
+  pause:
+    prompt: "Please run ./install.sh script manually and press Enter to continue. Directory: /usr/local/src/{{ zm_pkg }}/"
+  when: zimbra_manual_install | bool
+
 - name: Installing Zimbra OSE {{ zimbra_version }}
   shell: "./install.sh {{ '-s' if (not zimbra_upgrade) else '' }} < /tmp/zcs/installZimbra-keystrokes"
   args:
     chdir: '/usr/local/src/{{ zm_pkg }}/'
+  when: not zimbra_manual_install | bool
 
 - name: Configuring Zimbra OSE's services for use
   command: ./zmsetup.pl -c /tmp/zcs/installZimbraScript

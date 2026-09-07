@@ -75,6 +75,8 @@ zm_repo:
 
 * **zimbra_upgrade:** Inform "y" to upgrade an existing Zimbra installation. Zimbra will be upgraded to **zimbra_version** version. Default: **n**
 
+* **zimbra_manual_install:** Pause the installation process and prompt the user to run `install.sh` manually. Default: **false**
+
 Service Variables - Inform "y" or "n"
 --------------
 
